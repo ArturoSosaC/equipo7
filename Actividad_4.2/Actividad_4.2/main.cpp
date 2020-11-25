@@ -128,11 +128,7 @@ int main(int argc, const char * argv[]) {
     int length = (int)registros.size();
     Registro registro_temp;
 
-//    std::cout<<"Origen: "<<registros.at(3).getOrigen()<<std::endl;
-//    std::cout<<"NombreOrigen: "<<registros.at(3).getNombreOrigen()<<std::endl;
-//    std::cout<<"Fecha: "<<registros.at(3).Fecha()<<std::endl;
-//    std::cout<<"Destino: "<<registros.at(3).getDestino()<<std::endl;
-//    std::cout<<"NombreDestino:"<<registros.at(3).getNombreDestino()<<std::endl;
+
     for(int i=0; i<length; i++){
         registro_temp = registros.at(i);
         nombre = registro_temp.getNombreOrigen();
