@@ -149,7 +149,9 @@ int main(int argc, const char * argv[]){
     std::cout << "--- Set de dominios ----" << std::endl;
     
     std::set<std::string> dominios;
+    std::set<std::string> reto;
     std::vector< std::string > ips;
+    std::vector< std::string > ipsReto;
     
     for (auto r : registros) {
         std::string origen = r.getNombreOrigen();
@@ -161,6 +163,10 @@ int main(int argc, const char * argv[]){
             dominios.insert(origen);
             ips.push_back(ip);
         }
+        else{
+            reto.insert(origen);
+            ipsReto.push_back(ip);
+        }
         
         std::string destino = r.getNombreDestino();
         std::string destinoIp = r.getDestino();
@@ -171,15 +177,27 @@ int main(int argc, const char * argv[]){
             dominios.insert(destino);
             ips.push_back(ip);
         }
+        else{
+            reto.insert(origen);
+            ipsReto.push_back(ip);
+        }
     }
     
-    for (auto d : dominios) {
+    for (auto d : dominios){
         std::cout << d << std::endl;
     }
-        
-    std::cout << std::endl;
     
-    std::cout<< ips.at(52) <<std::endl;
+    std::cout << std::endl;
+    int count = 0;
+    
+    for (auto d : dominios){
+        if(d != "lrf8nxdjzhwvscbf49mh.org")
+            break;
+        else
+            count++;
+    }
+    
+    std::cout<< ips.at(count) <<std::endl;
     
     /* Eliminar todos los registros */
     registros.clear();

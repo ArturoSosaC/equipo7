@@ -9,6 +9,7 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
+#include <set>
 #include <stdlib.h>
 #include "Graph/Graph.hpp"
 #include "Registro/Registro.hpp"
@@ -107,44 +108,47 @@ auto read_csv_registro(std::string filename)
     return lineas;
 }
 
-bool duplicated(std::string tempString, std::vector< std::string > aux){
-    int length = (int)aux.size();
-    for(int i = 0; i<length; i++){
-        if(tempString == aux.at(i))
-            return true;
-    }
-    return false;
-}
-
 
 int main(int argc, const char * argv[]) {
+    // Leer Csv en un vector
     std::vector< Registro > registros = read_csv_registro("equipo7.csv");
+    
+    
+    //Estructuras auxiliares para crear vectores
     std::vector< std::string > auxiliar_ips;
     std::vector< std::string > auxiliar_nombres;
     std::string nombre;
     std::string ip;
+    
+    
+
+    //Definir vectores
     Graph< std::string, std::string > * ips = new Graph< std::string, std::string >();
     Graph< std::string, std::string > * nombres = new Graph< std::string, std::string >();
-    int length = (int)registros.size();
-    Registro registro_temp;
-
-
-    for(int i=0; i<length; i++){
-        registro_temp = registros.at(i);
-        nombre = registro_temp.getNombreOrigen();
-        ip = registro_temp.getOrigen();
-        auxiliar_ips.push_back(ip);
-        auxiliar_nombres.push_back(nombre);
-
-        if(duplicated(ip, auxiliar_ips) || duplicated(nombre, auxiliar_nombres)){
-            ips->addVertex(new Vertex<std::string, std::string>(ip));
+    
+    //Llenar vectores
+    for(auto r : registros){
+        nombre = r.getNombreOrigen();
+//        ip = r.getOrigen();
+        //std::cout<<"IP: "<<r.getOrigen()<<std::endl;
+//        std::cout<<"Nombre: "<<nombre<<std::endl;
+        if(std::find(auxiliar_nombres.begin(), auxiliar_nombres.end(), nombre) == auxiliar_nombres.end()){
+            
+//            ips->addVertex(new Vertex<std::string, std::string>(r.getOrigen()));
             nombres->addVertex(new Vertex<std::string, std::string>(nombre));
-
+//            auxiliar_ips.push_back(ip);
+            auxiliar_nombres.push_back(nombre);
+        }
+        if(std::find(auxiliar_ips.begin(), auxiliar_ips.end(), ip) == auxiliar_ips.end()){
+            std::cout<<r.getOrigen()<<std::endl;
+            ips->addVertex(new Vertex<std::string, std::string>(r.getOrigen()));
+            auxiliar_ips.push_back(ip);
         }
     }
-    auxiliar_ips.empty();
-    auxiliar_nombres.empty();
     
+    //Vaciar estructuras auxiliares
+    auxiliar_nombres.empty();
+    auxiliar_nombres.empty();
     
 //    for(int i=0; i<length; i++){
 //        registro_temp = registros.at(i);
@@ -161,10 +165,11 @@ int main(int argc, const char * argv[]) {
     
     
     
-    std::cout<< *ips <<std::endl;
-    int a;
-    std::cin>> a;
-    std::cout<< *nombres <<std::endl;
+//    std::cout<< *ips <<std::endl;
+//    std::string a;
+//    std::cout<<"Press enter to continue: ";
+//    std::cin>> a;
+//    std::cout<< *nombres <<std::endl;
     
     delete ips;
     delete nombres;
