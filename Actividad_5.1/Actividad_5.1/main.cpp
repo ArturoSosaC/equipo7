@@ -40,9 +40,9 @@ int main(int argc, const char * argv[]) {
     tabla->put(2, 2);
     tabla->put(8, 8);
     
-    std::cout << tabla->get(5) << std::endl;
-    std::cout << tabla->get(15) << std::endl;
-    std::cout << tabla->get(8) << std::endl;
+//    std::cout << tabla->get(5) << std::endl;
+//    std::cout << tabla->get(15) << std::endl;
+//    std::cout << tabla->get(8) << std::endl;
     
     /* Eliminar la tabla */
     delete tabla;

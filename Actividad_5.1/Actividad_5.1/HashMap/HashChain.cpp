@@ -16,7 +16,7 @@ template <class K, class V>
 class HashChain {
     int _capacity = 0;
     
-    std::vector<std::vector<std::pair<K, V>>> colisions;
+    std::vector<std::vector<std::pair<K, V>>> _colisions;
     std::vector<K> _keys;
     std::vector<V>  _values;
     std::vector<std::string> _status;
@@ -43,7 +43,7 @@ HashChain<K,V>::HashChain(int capacity)
     this->_status = std::vector<std::string>(capacity);
     this->_keys = std::vector<K>(capacity);
     this->_values = std::vector<V>(capacity);
-    std::vector<std::vector<std::pair<K, V>>> colisions(capacity);
+    this->_colisions = std::vector<std::vector<std::pair<K, V>>>(capacity);
     fill(_status.begin(), _status.end(), "vacio");
 }
 
@@ -79,14 +79,13 @@ template <class K, class V>
 bool HashChain<K,V>::put(K key,V value)
 {
     int indice = hash_function(key);
-
     if (this->_status[indice] == "vacío") {
         this->_keys[indice] = key;
         this->_values[indice] = value;
         this->_status[indice] = "ocupado";
     }
     
-    if (rehash(colisions.at(indice), key, value)){
+    if (rehash(this->_colisions.at(indice), key, value)){
         return true;
     }
     
