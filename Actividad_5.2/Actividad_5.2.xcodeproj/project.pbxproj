@@ -99,10 +99,10 @@
 		699C45C3256D44DF005914B4 /* LinkedList */ = {
 			isa = PBXGroup;
 			children = (
-				699C45C4256D44E0005914B4 /* LinkedList.cpp */,
-				699C45C5256D44E0005914B4 /* Node.cpp */,
 				699C45C6256D44E0005914B4 /* Node.hpp */,
+				699C45C5256D44E0005914B4 /* Node.cpp */,
 				699C45C7256D44E0005914B4 /* LinkedList.hpp */,
+				699C45C4256D44E0005914B4 /* LinkedList.cpp */,
 			);
 			path = LinkedList;
 			sourceTree = "<group>";
@@ -128,8 +128,8 @@
 		699C45CE256D44E0005914B4 /* Stack */ = {
 			isa = PBXGroup;
 			children = (
-				699C45CF256D44E0005914B4 /* Stack.cpp */,
 				699C45D0256D44E0005914B4 /* Stack.hpp */,
+				699C45CF256D44E0005914B4 /* Stack.cpp */,
 			);
 			path = Stack;
 			sourceTree = "<group>";

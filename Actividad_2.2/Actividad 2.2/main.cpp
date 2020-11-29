@@ -124,6 +124,7 @@ int main(int argc, const char * argv[]){
     int random = 0;
     int counter = 1;
     string randomToString;
+    
     string value = "192.168.57.";
     bool comparer = true;
     

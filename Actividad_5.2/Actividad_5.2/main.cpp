@@ -150,35 +150,32 @@ int main(int argc, const char * argv[]){
     
     std::set<std::string> dominios;
     std::set<std::string> reto;
-    std::vector< std::string > ips;
+    std::map <std::string, ConexionesComputadora<Registro> > mapa;
     std::vector< std::string > ipsReto;
     
     for (auto r : registros) {
-        std::string origen = r.getNombreOrigen();
+        std::string sitio = r.getNombreOrigen();
         std::string ip = r.getOrigen();
         
-        std::size_t found = origen.find("reto.com");
-        
-        if (found == std::string::npos) {
-            dominios.insert(origen);
-            ips.push_back(ip);
+        if (sitio.find("reto.com") == std::string::npos) {
+            dominios.insert(sitio);
+            ConexionesComputadora<Registro> *conexiones = new ConexionesComputadora<Registro>(r);
+            mapa.insert(pair<std::string, ConexionesComputadora<Registro>>(sitio, conexiones));
         }
         else{
-            reto.insert(origen);
+            reto.insert(sitio);
             ipsReto.push_back(ip);
         }
         
         std::string destino = r.getNombreDestino();
         std::string destinoIp = r.getDestino();
         
-        found = destino.find("reto.com");
-        
-        if (found == std::string::npos) {
+        if (destino.find("reto.com") == std::string::npos) {
             dominios.insert(destino);
-            ips.push_back(ip);
+
         }
         else{
-            reto.insert(origen);
+            reto.insert(sitio);
             ipsReto.push_back(ip);
         }
     }
@@ -197,7 +194,7 @@ int main(int argc, const char * argv[]){
             count++;
     }
     
-    std::cout<< ips.at(count) <<std::endl;
+
     
     /* Eliminar todos los registros */
     registros.clear();
