@@ -113,45 +113,20 @@ auto read_csv_registro(std::string filename)
 
 
 int main(int argc, const char * argv[]){
-    ConexionesComputadora<Registro> conexiones =
-    ConexionesComputadora<Registro>();
-    string value = "192.168.57.";
-    
+        
     /* Lectura de los datos como un objeto Registros */
     std::vector< Registro > registros = read_csv_registro("equipo7.csv");
     
-//    int sizeOfRegistros = (int)registros.size();
-//    std::set< std::string > setNombres;
-//    std::set< std::string > setDirecciones;
-//    std::string nombre;
-//    map <string, std::string>  mapa;
-//    std::map<std::string, std::string>::iterator it;
-//
-//    for(int i = 0; i<sizeOfRegistros; i++){
-//        nombre = registros.at(i).getNombreOrigen();
-//        if(nombre.find("reto.com") == string::npos){
-//            std::cout<<i<<std::endl;
-//            setNombres.insert(nombre);
-//            std::pair<std::string, std::string> nuevoSitio(nombre, registros.at(i).getOrigen());
-//            mapa.insert(nuevoSitio);
-//        }
-//    }
-//
-//    for (auto d : setNombres) {
-//        std::cout << d << std::endl;
-//    }
-    
-    
-//    set.clear();
-//    conexiones.clear();
-//    registros.clear();
-    
-    std::cout << "--- Set de dominios ----" << std::endl;
+    std::cout << "--- 1. Set de dominios ----" << std::endl;
     
     std::set<std::string> dominios;
     std::set<std::string> reto;
-    std::map <std::string, ConexionesComputadora<Registro> > mapa;
-    std::vector< std::string > ipsReto;
+    //std::map <std::string, ConexionesComputadora > mapa;
+    std::map <std::string, std::string> sitio_ip;
+    std::vector<std::string> ips_reto;
+    std::vector<std::string> conexiones_entrantes;
+    std::vector< std::pair<int, int> > puertos;
+    int computadoras_con_conexiones_entrantes = 0;
     
     for (auto r : registros) {
         std::string sitio = r.getNombreOrigen();
@@ -159,24 +134,39 @@ int main(int argc, const char * argv[]){
         
         if (sitio.find("reto.com") == std::string::npos) {
             dominios.insert(sitio);
-            ConexionesComputadora<Registro> *conexiones = new ConexionesComputadora<Registro>(r);
-            mapa.insert(pair<std::string, ConexionesComputadora<Registro>>(sitio, conexiones));
+            sitio_ip.insert(std::pair<std::string, std::string>(sitio, ip));
+//            ConexionesComputadora conexiones(r);
+//            mapa.insert(std::pair<std::string, ConexionesComputadora >(sitio, conexiones));
+            
         }
+        
         else{
             reto.insert(sitio);
-            ipsReto.push_back(ip);
+            sitio_ip.insert(std::pair<std::string, std::string>(sitio, ip));
+            ips_reto.push_back(ip);
         }
         
         std::string destino = r.getNombreDestino();
         std::string destinoIp = r.getDestino();
         
         if (destino.find("reto.com") == std::string::npos) {
+//            ConexionesComputadora conexiones(r);
+//            mapa[sitio] = conexiones;
             dominios.insert(destino);
-
+            
+            if(std::find(conexiones_entrantes.begin(),
+                         conexiones_entrantes.end(),
+                         destino) == conexiones_entrantes.end())
+            {
+                conexiones_entrantes.push_back(destino);
+//                puertos.push_back(std::make_pair(stoi(r.getPuertoOrigen()), stoi(r.getDestino())));
+                computadoras_con_conexiones_entrantes++;
+            }
         }
+        
         else{
             reto.insert(sitio);
-            ipsReto.push_back(ip);
+            ips_reto.push_back(ip);
         }
     }
     
@@ -186,20 +176,33 @@ int main(int argc, const char * argv[]){
     
     std::cout << std::endl;
     int count = 0;
-    
+
     for (auto d : dominios){
-        if(d != "lrf8nxdjzhwvscbf49mh.org")
+        if(d == "lrf8nxdjzhwvscbf49mh.org")
             break;
         else
             count++;
     }
-    
-
-    
-    /* Eliminar todos los registros */
-    registros.clear();
     dominios.clear();
     
+    std::cout << "--- 2. Ips de dominios raros ----" << std::endl;
+    std::cout<< ips_reto.at(count) <<std::endl<<std::endl;
+    //std::cout<< sitio_ip["rf8nxdjzhwvscbf49mh.org"] <<std::endl;
+    ips_reto.clear();
+    sitio_ip.clear();
+    
+    std::cout << "--- 3. Computadoras con conexiones entrantes ----" << std::endl;
+    std::cout<< computadoras_con_conexiones_entrantes <<std::endl<<std::endl;
+    
+    
+    /* Eliminar todos los registros */
+    conexiones_entrantes.clear();
+    
+    puertos.clear();
+    registros.clear();
+    reto.clear();
+    
+//    mapa.clear();
     return 0;
 }
     

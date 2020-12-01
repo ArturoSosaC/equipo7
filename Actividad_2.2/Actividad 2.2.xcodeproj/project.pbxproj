@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6900E0CE25367C7800743646 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6900E0CD25367C7800743646 /* main.cpp */; };
-		6900E12F2536804800743646 /* ConexionesComputadora.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6900E12D2536804800743646 /* ConexionesComputadora.cpp */; };
 		69941FEB2536C49E00108C65 /* Registro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69941FE92536C49E00108C65 /* Registro.cpp */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +26,6 @@
 /* Begin PBXFileReference section */
 		6900E0CA25367C7800743646 /* Actividad 2.2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Actividad 2.2"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6900E0CD25367C7800743646 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		6900E12D2536804800743646 /* ConexionesComputadora.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConexionesComputadora.cpp; sourceTree = "<group>"; };
-		6900E12E2536804800743646 /* ConexionesComputadora.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConexionesComputadora.hpp; sourceTree = "<group>"; };
 		69941FE72536C39800108C65 /* equipo7.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = equipo7.csv; sourceTree = "<group>"; };
 		69941FE92536C49E00108C65 /* Registro.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Registro.cpp; sourceTree = "<group>"; };
 		69941FEA2536C49E00108C65 /* Registro.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Registro.hpp; sourceTree = "<group>"; };
@@ -66,8 +63,6 @@
 			children = (
 				69941FE72536C39800108C65 /* equipo7.csv */,
 				6900E0CD25367C7800743646 /* main.cpp */,
-				6900E12D2536804800743646 /* ConexionesComputadora.cpp */,
-				6900E12E2536804800743646 /* ConexionesComputadora.hpp */,
 				69941FE92536C49E00108C65 /* Registro.cpp */,
 				69941FEA2536C49E00108C65 /* Registro.hpp */,
 			);
@@ -132,7 +127,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				69941FEB2536C49E00108C65 /* Registro.cpp in Sources */,
-				6900E12F2536804800743646 /* ConexionesComputadora.cpp in Sources */,
 				6900E0CE25367C7800743646 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

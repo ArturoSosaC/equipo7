@@ -33,10 +33,10 @@
 		69092F8D256B7A0B00072D99 /* Vertex.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
 		69092F8E256B7A0B00072D99 /* Edge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Edge.cpp; sourceTree = "<group>"; };
 		69092F97256B949400072D99 /* equipo7.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = equipo7.csv; sourceTree = "<group>"; };
-		69505A2C256E19C400A9D06A /* ConexionesComputadora.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConexionesComputadora.hpp; sourceTree = "<group>"; };
-		69505A2D256E19C400A9D06A /* ConexionesComputadora.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConexionesComputadora.cpp; sourceTree = "<group>"; };
 		69505A37256E1B2400A9D06A /* Registro.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Registro.cpp; sourceTree = "<group>"; };
 		69505A38256E1B2500A9D06A /* Registro.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Registro.hpp; sourceTree = "<group>"; };
+		69EEDE6A2575764800E739E0 /* ConexionesComputadora.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConexionesComputadora.hpp; sourceTree = "<group>"; };
+		69EEDE6B2575764800E739E0 /* ConexionesComputadora.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConexionesComputadora.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 			children = (
 				69092F6E256B796500072D99 /* main.cpp */,
 				69092F97256B949400072D99 /* equipo7.csv */,
-				69505A2B256E19C400A9D06A /* ConexionesComputadora */,
+				69EEDE692575764800E739E0 /* ConexionesComputadora */,
 				69505A31256E1AB300A9D06A /* Registro */,
 				69092F88256B7A0B00072D99 /* Graph */,
 			);
@@ -91,16 +91,6 @@
 			path = Graph;
 			sourceTree = "<group>";
 		};
-		69505A2B256E19C400A9D06A /* ConexionesComputadora */ = {
-			isa = PBXGroup;
-			children = (
-				69505A2C256E19C400A9D06A /* ConexionesComputadora.hpp */,
-				69505A2D256E19C400A9D06A /* ConexionesComputadora.cpp */,
-			);
-			name = ConexionesComputadora;
-			path = ../../Actividad_5.2/Actividad_5.2/ConexionesComputadora;
-			sourceTree = "<group>";
-		};
 		69505A31256E1AB300A9D06A /* Registro */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +98,16 @@
 				69505A38256E1B2500A9D06A /* Registro.hpp */,
 			);
 			path = Registro;
+			sourceTree = "<group>";
+		};
+		69EEDE692575764800E739E0 /* ConexionesComputadora */ = {
+			isa = PBXGroup;
+			children = (
+				69EEDE6A2575764800E739E0 /* ConexionesComputadora.hpp */,
+				69EEDE6B2575764800E739E0 /* ConexionesComputadora.cpp */,
+			);
+			name = ConexionesComputadora;
+			path = "../../Actividad_2.2/Actividad 2.2/ConexionesComputadora";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

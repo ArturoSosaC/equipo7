@@ -40,6 +40,14 @@ public:
         return fecha;
     }
     
+    std::string getPuertoOrigen(){
+        return puertoOrigen;
+    }
+    
+    std::string getPuertoDestino(){
+        return puertoDestino;
+    }
+    
     friend std::ostream & operator<<(std::ostream & os, const Registro & registro);
     bool operator != (const Registro & registro){
         return
