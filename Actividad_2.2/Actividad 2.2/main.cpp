@@ -223,5 +223,3 @@ int main(int argc, const char * argv[]){
     registros.clear();
     return 0;
 }
-    
-
